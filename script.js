@@ -19,10 +19,32 @@ const buttonArray = [
   ".",
   "=",
 ];
-buttonArray.map((item, index) => {
+
+const val = buttonArray.map((item, index) => {
   const maindiv = document.querySelector(".buttons");
   const node = document.createElement("button");
   const textnode = document.createTextNode(item);
   node.appendChild(textnode);
   maindiv.appendChild(node);
+
+  node.addEventListener("click", (e) => {
+    const target = e.target.innerText;
+    let v = document.querySelector(".display");
+    v.value += target;
+  });
+
+  // switch (target) {
+  //   case "=": {
+  //     console.log(v.value);
+  //     break;
+  //   }
+  //   case "AC": {
+  //     console.log("AC");
+  //     break;
+  //   }
+  //   case "C": {
+  //     console.log("C");
+  //     break;
+  //   }
+  // }
 });
