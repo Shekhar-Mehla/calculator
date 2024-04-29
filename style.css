@@ -38,7 +38,7 @@
   width: 65px;
   box-shadow: inset -4px 5px 39px 5px #07400f7a;
   background-color: #d3dfe2fa;
-  transition: font-size 0.3s, background-color 2s;
+  /* transition: font-size 0.3s, background-color 2s; */
 }
 button:hover {
   font-size: 35px;

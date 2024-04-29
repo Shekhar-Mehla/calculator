@@ -19,6 +19,33 @@ const buttonArray = [
   ".",
   "=",
 ];
+const getreuslt = (v) => {
+  const reuslt = eval(v);
+  stringToShow = reuslt;
+  return displayfunc(stringToShow);
+};
+displayfunc = (v) => {
+  const dispalyvalue = document.querySelector(".display");
+  console.log((dispalyvalue.innerText = v));
+};
+let stringToShow = "";
+const getvalue = ({ target }) => {
+  const value = target.innerText;
+  if (value === "AC") {
+    stringToShow = "";
+    displayfunc(stringToShow);
+    return;
+  }
+  if (value === "=") {
+    getreuslt(stringToShow);
+
+    return;
+  }
+  stringToShow += value;
+
+  displayfunc(stringToShow);
+  console.log("executing");
+};
 
 const val = buttonArray.map((item, index) => {
   const maindiv = document.querySelector(".buttons");
@@ -28,9 +55,7 @@ const val = buttonArray.map((item, index) => {
   maindiv.appendChild(node);
 
   node.addEventListener("click", (e) => {
-    const target = e.target.innerText;
-    let v = document.querySelector(".display");
-    v.value += target;
+    getvalue(e);
   });
 
   // switch (target) {
