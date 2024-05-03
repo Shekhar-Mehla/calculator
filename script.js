@@ -19,6 +19,7 @@ const buttonArray = [
   ".",
   "=",
 ];
+
 const getreuslt = (v) => {
   const reuslt = eval(v);
   stringToShow = reuslt;
@@ -26,8 +27,9 @@ const getreuslt = (v) => {
 };
 displayfunc = (v) => {
   const dispalyvalue = document.querySelector(".display");
-  console.log((dispalyvalue.innerText = v));
+  dispalyvalue.innerText = v;
 };
+const oprators = ["+", "/", "-", "*", "%"];
 let stringToShow = "";
 const getvalue = ({ target }) => {
   const value = target.innerText;
@@ -41,6 +43,13 @@ const getvalue = ({ target }) => {
 
     return;
   }
+
+  if (value === "C") {
+    const laststring = stringToShow.slice(0, -1);
+    stringToShow = laststring;
+    return displayfunc(stringToShow);
+  }
+
   stringToShow += value;
 
   displayfunc(stringToShow);
@@ -57,19 +66,4 @@ const val = buttonArray.map((item, index) => {
   node.addEventListener("click", (e) => {
     getvalue(e);
   });
-
-  // switch (target) {
-  //   case "=": {
-  //     console.log(v.value);
-  //     break;
-  //   }
-  //   case "AC": {
-  //     console.log("AC");
-  //     break;
-  //   }
-  //   case "C": {
-  //     console.log("C");
-  //     break;
-  //   }
-  // }
 });
