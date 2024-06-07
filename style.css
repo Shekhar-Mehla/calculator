@@ -51,3 +51,10 @@ button:hover {
 button:last-child {
   width: 138px;
 }
+/* mediaqueryry */
+@media(max-width:400px){
+
+
+
+  
+}
